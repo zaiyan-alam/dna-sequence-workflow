@@ -3,4 +3,4 @@
 <img src="https://github.com/zaiyan-alam/dna-sequence-workflow/blob/main/images/overview.png" width="400" height="500">
 
 
-<img src="https://github.com/zaiyan-alam/dna-sequence-workflow/blob/main/images/graph.png" width="1000" height="400"> 
+![workflow](images/graph.png)
