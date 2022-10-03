@@ -79,6 +79,21 @@ Options
 
    By default, debug mode is off.
 
+**-l**; \ **--long**
+   This option will show one line per sub-DAG, including one line for
+   the workflow. In case of hierarchical workflows, now each sub-dag
+   is shown along with indented branch. This option now shows more columns
+   for jobs in condor Q.
+
+   By default, only DAG totals (sums) are shown.
+
+**-D**; \ **--dirs**
+   This option can be used along with **--long** option in case of hierarchical
+   workflows, to show relative directories under *dagnames* per sub-DAG. It's
+   main usage comes for hierarichal workflows.
+
+   By default, only dag names are shown.
+
 **-j**
    This option returns the status of the workflow in a JSON serializable data
    structure (Python dict). Sample of this structure is shown below, where the
@@ -89,9 +104,6 @@ Options
    *condor_jobs*: contains all the jobs in Q belonging to a specific workflow,
    with it's unique *wf_uuid* as corresponding key. Furthermore, each
    workflow has *DAG_NAME* and a list *DAG_CONDOR_JOBS*
-
-   If there are no jobs of the workflow in the condor Q, *condor_jobs* is absent
-   from the returned structure. By default, **-j** option is off.
    
 .. code-block:: json
 
@@ -156,14 +168,8 @@ Options
      }
    }
  }
-
-
-**-l**; \ **--long**
-   This option will show one line per sub-DAG, including one line for
-   the workflow. If there is only a single DAG pertaining to the
-   *rundir*, only total will be shown.
-
-   By default, only DAG totals (sums) are shown.
+   If there are no jobs of the workflow in the condor Q, *condor_jobs* is absent
+   from the returned structure. By default, **-j** option is off.
 
 *rundir*
    This option show statistics about the given DAG that runs in
