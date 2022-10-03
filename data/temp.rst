@@ -223,10 +223,10 @@ Example
    directory, and redraw the terminal every five minutes with updated
    statistics.
    
-   x = { a,
-         b,
-         c
-   }
+   |x = { a,
+   |      b,
+   |      c
+   |}
 
 
 Restrictions
