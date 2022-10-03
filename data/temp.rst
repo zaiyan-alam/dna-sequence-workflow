@@ -295,10 +295,10 @@ Example
           "pegasus_wf_xformation": "condor::dagman",
           "UserLog": "/home/mzalam/028-dynamic-hierarchy/work/mzalam/pegasus/hierarchical-workflow/run0001/hierarchical-workflow-0.log"
         }
-      ]
-    }
-  }
-}
+       ]
+     }
+   }
+ }
 
 Restrictions
 ============
