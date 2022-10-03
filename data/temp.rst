@@ -105,6 +105,9 @@ Options
    with it's unique *wf_uuid* as corresponding key. Furthermore, each
    workflow has *DAG_NAME* and a list *DAG_CONDOR_JOBS*
    
+   If there are no jobs of the workflow in the condor Q, *condor_jobs* is absent
+   from the returned structure. By default, **-j** option is off.
+   
 .. code-block:: json
 
     {
@@ -168,8 +171,6 @@ Options
      }
    }
  }
-   If there are no jobs of the workflow in the condor Q, *condor_jobs* is absent
-   from the returned structure. By default, **-j** option is off.
 
 *rundir*
    This option show statistics about the given DAG that runs in
