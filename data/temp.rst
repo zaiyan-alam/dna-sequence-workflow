@@ -233,7 +233,7 @@ Example
     {
         "key": "value",
         "key2": "value2",
-        ...
+        
     }
 
 Restrictions
