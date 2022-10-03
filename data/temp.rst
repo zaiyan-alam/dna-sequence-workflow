@@ -222,22 +222,83 @@ Example
    show legends, itemize DAG statistics of the current working
    directory, and redraw the terminal every five minutes with updated
    statistics.
-   
-| x = { a,
-|      b,
-|      c
-| }
 
 .. code-block:: json
 
     {
-        "key": "value",
-        "key2": "value2",
-        "root": {
-                  "a": "b"
-               }
-        
+  "totals": {
+    "unready": 13,
+    "ready": 0,
+    "pre": 0,
+    "queued": 1,
+    "post": 1,
+    "succeeded": 14,
+    "failed": 0,
+    "percent_done": 48.28,
+    "total": 29
+  },
+  "dags": {
+    "root": {
+      "unready": 4,
+      "ready": 0,
+      "pre": 0,
+      "queued": 1,
+      "post": 0,
+      "succeeded": 8,
+      "failed": 0,
+      "percent_done": 61.54,
+      "total": 13,
+      "dagname": "hierarchical-workflow-0.dag",
+      "state": "Running"
+    },
+    "inner": {
+      "unready": 9,
+      "ready": 0,
+      "pre": 0,
+      "queued": 0,
+      "post": 1,
+      "succeeded": 6,
+      "failed": 0,
+      "percent_done": 37.5,
+      "total": 16,
+      "dagname": "inner.dag",
+      "state": "Running"
     }
+  },
+  "condor_jobs": {
+    "f436c93a-5ef5-4d9f-815a-0ccee5e9de67": {
+      "DAG_NAME": "root",
+      "DAG_CONDOR_JOBS": [
+        {
+          "ClusterId": 2457,
+          "Cmd": "/usr/bin/pegasus-dagman",
+          "EnteredCurrentStatus": 1664819625,
+          "Iwd": "/home/mzalam/028-dynamic-hierarchy/work/mzalam/pegasus/hierarchical-workflow/run0001",
+          "JobPrio": 0,
+          "JobStatus": "Run",
+          "pegasus_site": "local",
+          "pegasus_wf_name": "hierarchical-workflow-0",
+          "pegasus_wf_xformation": "pegasus::dagman",
+          "UserLog": "/home/mzalam/028-dynamic-hierarchy/work/mzalam/pegasus/hierarchical-workflow/run0001/hierarchical-workflow-0.dag.dagman.log"
+        },
+        {
+          "ClusterId": 2465,
+          "Cmd": "/usr/bin/condor_dagman",
+          "EnteredCurrentStatus": 1664819681,
+          "Iwd": "/home/mzalam/028-dynamic-hierarchy/work/mzalam/pegasus/hierarchical-workflow/run0001/00/00/./inner",
+          "JobPrio": 30,
+          "JobStatus": "Run",
+          "pegasus_site": "local",
+          "pegasus_wf_dag_job_id": "pegasus-plan_diamond_subworkflow",
+          "pegasus_wf_dax_job_id": "diamond_subworkflow",
+          "pegasus_wf_name": "hierarchical-workflow-0",
+          "pegasus_wf_xformation": "condor::dagman",
+          "UserLog": "/home/mzalam/028-dynamic-hierarchy/work/mzalam/pegasus/hierarchical-workflow/run0001/hierarchical-workflow-0.log"
+        }
+      ]
+    }
+  }
+}
 
 Restrictions
 ============
