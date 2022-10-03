@@ -228,6 +228,13 @@ Example
 |      c
 | }
 
+.. code-block:: json
+
+    {
+        "key": "value",
+        "key2": "value2",
+        ...
+    }
 
 Restrictions
 ============
