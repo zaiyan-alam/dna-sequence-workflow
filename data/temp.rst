@@ -222,6 +222,11 @@ Example
    show legends, itemize DAG statistics of the current working
    directory, and redraw the terminal every five minutes with updated
    statistics.
+   
+   x = { a,
+         b,
+         c
+   }
 
 
 Restrictions
