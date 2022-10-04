@@ -100,7 +100,7 @@ Options
    keys are - 
 + *totals* : contains the overall progress of the workflow
 + *dags* : contains progress regarding each workflow, in case of hierarchical workflows each sub-DAG with it's name as corresponding key
-+ *condor_jobs*: contains all the jobs in Q belonging to a specific workflow, with it's unique *wf_uuid* as corresponding key. Furthermore, each workflow has *DAG_NAME* and a list *DAG_CONDOR_JOBS*
++ *condor_jobs*: contains all the jobs in Q belonging to a specific workflow, with it's unique *wf_uuid* as corresponding key. Furthermore, each workflow has *DAG_NAME* key and *DAG_CONDOR_JOBS* key with a list of condor Q jobs of the corresponding DAG
 | If there are no jobs of the workflow in the condor Q, *condor_jobs* is absent from the returned structure. By default, **-j** option is off.
    
 .. code-block:: json
