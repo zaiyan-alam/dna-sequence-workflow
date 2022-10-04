@@ -98,12 +98,9 @@ Options
    This option returns the status of the workflow in a JSON serializable data
    structure (Python dict). Sample of this structure is shown below, where the
    keys are - 
-+ *totals*: contains the overall progress of the workflow
-+ *dags*: contains progress regarding each workflow, in case of 
-   hierarchical workflows each sub-DAG with it's name as corresponding key
-+ *condor_jobs*: contains all the jobs in Q belonging to a specific workflow,
-   with it's unique *wf_uuid* as corresponding key. Furthermore, each
-   workflow has *DAG_NAME* and a list *DAG_CONDOR_JOBS*
++ *totals* : contains the overall progress of the workflow
++ *dags* : contains progress regarding each workflow, in case of hierarchical workflows each sub-DAG with it's name as corresponding key
++ *condor_jobs*: contains all the jobs in Q belonging to a specific workflow, with it's unique *wf_uuid* as corresponding key. Furthermore, each workflow has *DAG_NAME* and a list *DAG_CONDOR_JOBS*
    
    If there are no jobs of the workflow in the condor Q, *condor_jobs* is absent
    from the returned structure. By default, **-j** option is off.
