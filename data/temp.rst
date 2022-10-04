@@ -98,10 +98,10 @@ Options
    This option returns the status of the workflow in a JSON serializable data
    structure (Python dict). Sample of this structure is shown below, where the
    keys are explained as follows -
-   *totals*: contains the overall progress of the workflow
-   *dags*: contains progress regarding each workflow, in case of 
+   + *totals*: contains the overall progress of the workflow
+   + *dags*: contains progress regarding each workflow, in case of 
    hierarchical workflows each sub-DAG with it's name as corresponding key
-   *condor_jobs*: contains all the jobs in Q belonging to a specific workflow,
+   + *condor_jobs*: contains all the jobs in Q belonging to a specific workflow,
    with it's unique *wf_uuid* as corresponding key. Furthermore, each
    workflow has *DAG_NAME* and a list *DAG_CONDOR_JOBS*
    
@@ -173,7 +173,7 @@ Options
  }
 
 *rundir*
-   This option show statistics about the given DAG that runs in
+   This option shows statistics about the given DAG that runs in
    *rundir*. To gather proper statistics, **pegasus-status** needs to
    traverse the directory and all sub-directories. This can become an
    expensive operation on shared filesystems.
