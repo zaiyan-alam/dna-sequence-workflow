@@ -16,6 +16,7 @@ $ docker build -t local/alphafold_container .
 $ singularity build alphafold_container.sif docker-daemon://local/alphafold_container
 ```
 The container comes with the following main tools along with other common libraries :
+* alphafold==2.2.0
 * hmmer==3.3.2 
 * hhsuite==3.3.0 
 * kalign2==2.04
@@ -27,7 +28,9 @@ The container comes with the following main tools along with other common librar
 * immutabledict==2.0.0 
 
 
-Genetic databases
+## Genetic databases
+Thi
+
 The workflow does supports both Database presets of Alphafold :
 reduced databases--
 full databases --
