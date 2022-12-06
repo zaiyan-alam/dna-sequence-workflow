@@ -41,7 +41,8 @@ The following databases are used in the workflow :
 ```
 $ /data/download_all_data.sh -d <DOWNLOAD_DIRECTORY>
 ```
-:ledger: By default
+:ledger: **Note:** By default the `download_all_data.sh` script is set to download the reduced version of databases (of size 600 GB). 
+If you want to download
 
 :ledger: **Note: The download directory `<DOWNLOAD_DIR>` should _not_ be a
 subdirectory in the AlphaFold repository directory.** If it is, the Docker build
