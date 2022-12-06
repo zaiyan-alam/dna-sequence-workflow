@@ -57,6 +57,16 @@ will be slow as the large databases will be copied during the image creation.
 
 
 
+The jobs and tools used in the workflow are explained below:
+
+*   `sequence_features` – produces the sequence features from the input fasta file
+*   `jackhmmer_uniref90` – runs jackhmmer tool on the UniRef90 database to produce MSAs
+*   `jackhmmer_mgnify` – runs jackhmmer tool on the MGnify database to produce MSAs
+*   `hhblits_bfd` – runs hhblits tool on the BFD database to produce MSAs
+*   `hhsearch_pdb70` - runs hhsearch tool on PDB70 database to produce search templates
+*   `msa_features` – turns the MSA results into dicts of features
+*   `features_summary` – contains a summary of info reagrding all MSAs produced
+*   `combine_features` – combines all MSA features, sequence features and templates into features file `features.pkl`
 
 
 ## Running the workflow
