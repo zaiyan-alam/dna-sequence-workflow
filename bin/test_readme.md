@@ -42,7 +42,11 @@ The following databases are used in the workflow :
 $ /data/download_all_data.sh -d <DOWNLOAD_DIRECTORY>
 ```
 :ledger: **Note:** By default the `download_all_data.sh` script is set to download the reduced version of databases (of size 600 GB). 
-If you want to download
+If you want to download the full version of databases (of size 2.2 TB), `full_dbs` option can be entered as follows :
+
+```
+$ /data/download_all_data.sh -d <DOWNLOAD_DIRECTORY> full_dbs
+```
 
 :ledger: **Note: The download directory `<DOWNLOAD_DIR>` should _not_ be a
 subdirectory in the AlphaFold repository directory.** If it is, the Docker build
@@ -51,11 +55,21 @@ will be slow as the large databases will be copied during the image creation.
 ## Workflow
 
 
-The workflow does support both Database presets of Alphafold :
-reduced databases--
-full databases --
 
 
-Running the workflow
 
+
+## Running the workflow
+
+The workflow is set to run on a local HTCondor Pool in the default Condorio
+data configuration mode, where each job is run in a Singularity container.
+To submit a workflow run :
+```
+    python3 alphafold_workflow.py \
+    --input-fasta-file=/path/to/input/fasta/file \
+    --uniref90-db-path=/path/to/uniref90_db \
+    --pdb70-db-dir=/path/to/pdb70_db \
+    --mgnify-db-path=/path/to/mgnify_db \
+    --bfd-db-path=/path/to/bfd_db 
+```
 
