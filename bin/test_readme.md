@@ -30,20 +30,31 @@ The container comes with the following main tools along with other common librar
 
 ## Genetic databases
 If your machine has `aria2c` installed in it, then it's recommended to use Alphafold's provided database download scripts over 
-[here](https://github.com/deepmind/alphafold/tree/main/scripts), as it would be a bit faster. 
-Otherwise the database download scripts are provided in this repository which use readily available command line utilities. 
+[here](https://github.com/deepmind/alphafold/tree/main/scripts).
+Otherwise the database download scripts provided in this repository (`/data/download_all_data.sh`) use readily available command line utilities.
+The following databases are used in the workflow :
+*   [BFD](https://bfd.mmseqs.com/)
+*   [MGnify](https://www.ebi.ac.uk/metagenomics/)
+*   [PDB70](http://wwwuser.gwdg.de/~compbiol/data/hhsuite/databases/hhsuite_dbs/)
+*   [UniRef90](https://www.uniprot.org/help/uniref)
 
-The workflow does supports both Database presets of Alphafold :
+```
+$ /data/download_all_data.sh -d <DOWNLOAD_DIRECTORY>
+```
+:ledger: By default
+
+:ledger: **Note: The download directory `<DOWNLOAD_DIR>` should _not_ be a
+subdirectory in the AlphaFold repository directory.** If it is, the Docker build
+will be slow as the large databases will be copied during the image creation.
+
+## Workflow
+
+
+The workflow does support both Database presets of Alphafold :
 reduced databases--
 full databases --
-
-
-
-Workflow
-
 
 
 Running the workflow
 
 
-Notes
