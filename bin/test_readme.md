@@ -1,6 +1,6 @@
-Alphafold Pegasus Workflow
+#Alphafold Pegasus Workflow
 
-A Pegasus Workflow for running Alphafold model's inference pipeline regarding protein structure
+A Pegasus Workflow for running [Alphafold](https://github.com/deepmind/alphafold) model's inference pipeline regarding protein structure
 prediction. The current workflow is regarding the Multiple Sequence Alignment (MSA) and 
 Feature Generation, which produce a features.pkl file that can be later used in structure inference
 stage using the Alphafold model parameters.
