@@ -29,7 +29,9 @@ The container comes with the following main tools along with other common librar
 
 
 ## Genetic databases
-Thi
+If your machine has `aria2c` installed in it, then it's recommended to use Alphafold's provided database download scripts over 
+[here](https://github.com/deepmind/alphafold/tree/main/scripts), as it would be a bit faster. 
+Otherwise the database download scripts are provided in this repository which use readily available command line utilities. 
 
 The workflow does supports both Database presets of Alphafold :
 reduced databases--
