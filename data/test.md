@@ -10,7 +10,7 @@
 | git diff | Show file differences that haven't been staged |
 
 
-| Left-aligned | Center-aligned | Right-aligned |
+| Setup | Partial Database (~70GB) | Complete Database (~600GB) |
 | :---         |     :---:      |          ---: |
 | git status   | git status     | git status    |
 | git diff     | git diff       | git diff      |
