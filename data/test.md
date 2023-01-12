@@ -1,4 +1,6 @@
-| Command | Description |
+| Command | Partial Database (~70GB) | Complete Database (~600GB)|
 | --- | --- |
-| git status | List all new or modified files |
-| git diff | Show file differences that haven't been staged |
+| Local machine | 18 min, 23 secs | |
+| PSC Bridges 2 | 4 min, 51 secs | |
+
+  
