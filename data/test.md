@@ -11,6 +11,6 @@
 
 
 | Setup | Partial Database (~70GB) | Complete Database (~600GB) |
-| :---         |     :---:      |          ---: |
-| git status   | git status     | git status    |
-| git diff     | git diff       | git diff      |
+| :---         |     :---:      |          :---: |
+| Local machine   | git status     | git status    |
+| PSC Bridges 2     | git diff       | git diff      |
