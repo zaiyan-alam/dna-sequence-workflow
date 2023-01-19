@@ -61,7 +61,8 @@ If you are planning to run the workflow on ACCESS resources with [PSC Bridges](h
     --mgnify-db-path=/ocean/projects/<groupname>/<username>/data/mgnify \
     --bfd-db-path=/ocean/projects/<groupname>/<username>/data/bfd
   ```
-  Please make sure that paths to the genetic databases are entered correctly, 
+  The `--psc` option is used because the compute site for this steup is PSC Bridges, this option is not required when running on a local machine.
+  Please make sure that paths to the genetic databases are entered correctly. Some workflow statistics have been shown below for reference.
 
 ## Container
 
