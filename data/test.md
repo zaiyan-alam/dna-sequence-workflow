@@ -15,7 +15,7 @@ If you are planning to run the workflow on ACCESS resources with [PSC Bridges](h
   to  execute the sample workflows first listed in the documentation in order to avoid any errors, they are simple and easy to execute.
 * After the setup is complete and you are able to run the sample ACCESS-Pegasus workflows successfully, next we need to configure a new SSH key to be
   used for file transfers(by `scp` protocol) in our Alphafold workflow. Go to homepage on https://access.pegasus.isi.edu, then open up a 
-  shell navigating `Clusters --> Shell Access`.
+  shell navigating `Clusters --> Shell Access`. Generate a new SSH key as follows:
   ```
   $ cd .ssh
   $ ssh-keygen -t rsa
@@ -25,7 +25,30 @@ If you are planning to run the workflow on ACCESS resources with [PSC Bridges](h
   has to be submitted using PSC Bridges Key Management system. Copy the contents of file `id_rsa.pub` and login to [PSC SSH Key Manager](https://grants.psc.edu/cgi-bin/ssh/listKeys.pl) using the PSC Bridges login credentials. Click on `Submit New Key` and paste the public key copied
   from `id_rsa.pub` file in the `Paste Key` section and then submit it. For more info on PSC SSH Key Management, you can refer to their website : 
   https://www.psc.edu/about-using-ssh/. It takes a couple of hours for the SSH key to be configured on their system.
-* The next step is to setup a container to be used in the workflow. 
+* The next step is to setup a container to be used in the workflow. Open up shell on PSC Bridges by logging into  
+  [PSC Bridges](https://ondemand.bridges2.psc.edu.), then navigating `Clusters --> Shell Access`. Go to your username directory in the RM storage 
+  on PSC and clone the Alphafold repository there :
+   ```
+  $ cd /ocean/projects/<groupname>/<username>/
+  $ git clone https://github.com/deepmind/alphafold.git
+  $ cd alphafold
+  ```
+  Then create a singularity container as follows: 
+  ```
+  $ docker build -t local/alphafold_container .
+  $ singularity build alphafold_container.sif docker-daemon://local/alphafold_container
+  ```
+  Make note of the absolute path to the conatiner as it will be used in the Alphafold workflow later. More information and notes regarding the 
+  container step can be found in the Container section below.
+* The next step is to setup a data directory and download all the genetic databases there as follows:
+   ```
+  $ cd /ocean/projects/<groupname>/<username>/
+  $ mkdir data
+  $ /ocean/projects/<groupname>/<username>/alphafold/data/download_all_data.sh -d /ocean/projects/<groupname>/<username>/data
+  ```
+  This is a time consuming step and takes somewhere between 6 hours to 8 hours, so please make sure that the session doesn't time out.
+  More information and notes regarding data download step can be found in the Genetic Databases section below. 
+* 
 
 
 
