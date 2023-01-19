@@ -8,19 +8,21 @@ The workflow is set to run in `sharedfs` mode with no input staging and symlinki
 
 
 ## Steps to setup ACCESS resources
-If you are planning to run the workflow on ACCESS resources with [PSC Bridges](https://ondemand.bridges2.psc.edu.) as the resource allocation provider, please follow the
-steps shown below in a sequential manner :
+If you are planning to run the workflow on ACCESS resources with [PSC Bridges](https://ondemand.bridges2.psc.edu.) as the resource allocation provider, please follow the steps shown below :
 * To get started, point your browser to https://access.pegasus.isi.edu and log in using the ACCESS Pegasus credentials.
   Use the [ACCESS Pegasus Documentation](https://access-ci.atlassian.net/wiki/spaces/ACCESSdocumentation/pages/129140407/ACCESS+Pegasus)
   to configure a basic setup for [ACCESS Pegasus workflows](https://github.com/pegasus-isi/ACCESS-Pegasus-Examples). It's recommended that you try
   to  execute the sample workflows first listed in the documentation in order to avoid any errors, they are simple and easy to execute.
 * After the setup is complete and you are able to run the sample ACCESS-Pegasus workflows successfully, we need to configure a new SSH key to be
   used for file transfers(by `scp` protocol) in our Alphafold workflow. Go to homepage on https://access.pegasus.isi.edu, then open up a 
-  shell `Clusters --> Shell Access`.
+  shell navigating `Clusters --> Shell Access`.
   ```
   $ cd .ssh
   $ ssh-keygen -t rsa
   ```
+  Make note of absolute path to the private SSH key file `id_rsa`, as this will be used our Alphafold workflow.
+  Since PSC Bridges doesn't allow to configure new SSH keys simply by saving the public key in a file using the shell, it has to be submitted
+  using PSC Bridges Key Management system. 
 * 
 
 
