@@ -6,6 +6,16 @@ Feature Generation steps, which produce a `features.pkl` file that can be later 
 stage using the Alphafold model parameters. The workflow is currently limited to the Alphafold `monomer-system` model preset by default.
 The workflow is set to run in `sharedfs` mode with no input staging and symlinking turned on.  
 
+
+## Steps to setup ACCESS resources
+If you are planning to run the workflow on ACCESS resources with PSC Bridges as the resource allocation provider, please follow the
+steps shown below in a sequential manner :
+* To get started, point your browser to https://access.pegasus.isi.edu and log in using the ACCESS Pegasus credentials.
+  edrv 
+* wdvrv
+
+
+
 ## Container
 
 The workflow uses a singularity container in order to execute all jobs. It is recommended to build a local container (in a `.sif` file) using the
