@@ -20,9 +20,11 @@ If you are planning to run the workflow on ACCESS resources with [PSC Bridges](h
   $ cd .ssh
   $ ssh-keygen -t rsa
   ```
-  Make note of absolute path to the private SSH key file `id_rsa`, as this will be used our Alphafold workflow.
-  Since PSC Bridges doesn't allow to configure new SSH keys simply by saving the public key in a file using the shell, it has to be submitted
-  using PSC Bridges Key Management system. 
+  Make note of absolute path to the private SSH key file `id_rsa`, as this path will be used our Alphafold workflow.
+  Since PSC Bridges doesn't allow to configure new SSH keys simply by saving the public key in a file using the shell, the public key
+  has to be submitted using PSC Bridges Key Management system. Copy the contents of file `id_rsa.pub` and login to [PSC SSH Key Manager](https://grants.psc.edu/cgi-bin/ssh/listKeys.pl) using the PSC Bridges login credentials. Click on `Submit New Key` and paste the public key copied
+  from `id_rsa.pub` file in the `Paste Key` section and then submit it. For more info on PSC SSH Key Management, you can refer to their website : 
+  https://www.psc.edu/about-using-ssh/
 * 
 
 
