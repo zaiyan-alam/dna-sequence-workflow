@@ -13,7 +13,7 @@ If you are planning to run the workflow on ACCESS resources with [PSC Bridges](h
   Use the [ACCESS Pegasus Documentation](https://access-ci.atlassian.net/wiki/spaces/ACCESSdocumentation/pages/129140407/ACCESS+Pegasus)
   to configure a basic setup for [ACCESS Pegasus workflows](https://github.com/pegasus-isi/ACCESS-Pegasus-Examples). It's recommended that you try
   to  execute the sample workflows first listed in the documentation in order to avoid any errors, they are simple and easy to execute.
-* After the setup is complete and you are able to run the sample ACCESS-Pegasus workflows successfully, we need to configure a new SSH key to be
+* After the setup is complete and you are able to run the sample ACCESS-Pegasus workflows successfully, next we need to configure a new SSH key to be
   used for file transfers(by `scp` protocol) in our Alphafold workflow. Go to homepage on https://access.pegasus.isi.edu, then open up a 
   shell navigating `Clusters --> Shell Access`.
   ```
@@ -24,8 +24,8 @@ If you are planning to run the workflow on ACCESS resources with [PSC Bridges](h
   Since PSC Bridges doesn't allow to configure new SSH keys simply by saving the public key in a file using the shell, the public key
   has to be submitted using PSC Bridges Key Management system. Copy the contents of file `id_rsa.pub` and login to [PSC SSH Key Manager](https://grants.psc.edu/cgi-bin/ssh/listKeys.pl) using the PSC Bridges login credentials. Click on `Submit New Key` and paste the public key copied
   from `id_rsa.pub` file in the `Paste Key` section and then submit it. For more info on PSC SSH Key Management, you can refer to their website : 
-  https://www.psc.edu/about-using-ssh/
-* 
+  https://www.psc.edu/about-using-ssh/. It takes a couple of hours for the SSH key to be configured on their system.
+* The next step is to setup a container to be used in the workflow. 
 
 
 
