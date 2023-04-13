@@ -195,63 +195,63 @@ Options
 
 .. code-block:: json
 
-{
-  "root_wf_uuid": "f84f05fc-a8d0-42b5-bac5-52d6f41a77e3",
-  "submit_directory": "/home/mzalam/processwf/process-workflow/submit/mzalam/pegasus/process/run0001",
-  "workflows": {
-    "root": {
-      "wf_uuid": "f84f05fc-a8d0-42b5-bac5-52d6f41a77e3",
-      "dag_file_name": "process-0.dag",
-      "submit_hostname": "workflow.isi.edu",
-      "submit_dir": "/home/mzalam/processwf/process-workflow/submit/mzalam/pegasus/process/run0001",
-      "user": "mzalam",
-      "planner_version": "5.0.5",
-      "wf_name": "process",
-      "wf_status": "failure",
-      "parent_wf_name": "-",
-      "parent_wf_uuid": "-",
-      "jobs": {
-        "total": 5,
-        "success": 1,
-        "failed": 1,
-        "held": 0,
-        "unsubmitted": 3,
-        "job_details": {
-          "failed_jobs_details": {
-            "ls_ID0000001": {
-              "job_name": "ls_ID0000001",
-              "state": "POST_SCRIPT_FAILURE",
-              "site": "condorpool",
-              "hostname": "workflow.isi.edu",
-              "work_dir": "/home/mzalam/wf/condor/local/execute/dir_148537",
-              "submit_file": "/home/mzalam/pegasus_master/pegasus/packages/pegasus-python/test/cli/analyzer_samples_dir/process_wf_failure/00/00/ls_ID0000001.sub",
-              "stdout_file": "/home/mzalam/pegasus_master/pegasus/packages/pegasus-python/test/cli/analyzer_samples_dir/process_wf_failure/00/00/ls_ID0000001.out",
-              "stderr_file": "/home/mzalam/pegasus_master/pegasus/packages/pegasus-python/test/cli/analyzer_samples_dir/process_wf_failure/00/00/ls_ID0000001.err",
-              "executable": "/home/mzalam/processwf/process-workflow/submit/mzalam/pegasus/process/run0001/00/00/ls_ID0000001.sh",
-              "argv": "",
-              "pre_executable": "",
-              "pre_argv": null,
-              "submit_dir": null,
-              "subwf_dir": "-",
-              "stdout_text": "-",
-              "stderr_text": "/bin/ls: invalid option -- 'z'\nTry '/bin/ls --help' for more information.\n",
-              "tasks": {
-                "1": {
-                  "task_submit_seq": 1,
-                  "exitcode": 2,
-                  "executable": "/usr/bin/ls",
-                  "arguments": "-",
-                  "transformation": "ls",
-                  "abs_task_id": "ID0000001"
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
+   {
+     "root_wf_uuid": "f84f05fc-a8d0-42b5-bac5-52d6f41a77e3",
+     "submit_directory": "/home/mzalam/processwf/process-workflow/submit/mzalam/pegasus/process/run0001",
+     "workflows": {
+       "root": {
+         "wf_uuid": "f84f05fc-a8d0-42b5-bac5-52d6f41a77e3",
+         "dag_file_name": "process-0.dag",
+         "submit_hostname": "workflow.isi.edu",
+         "submit_dir": "/home/mzalam/processwf/process-workflow/submit/mzalam/pegasus/process/run0001",
+         "user": "mzalam",
+         "planner_version": "5.0.5",
+         "wf_name": "process",
+         "wf_status": "failure",
+         "parent_wf_name": "-",
+         "parent_wf_uuid": "-",
+         "jobs": {
+           "total": 5,
+           "success": 1,
+           "failed": 1,
+           "held": 0,
+           "unsubmitted": 3,
+           "job_details": {
+             "failed_jobs_details": {
+               "ls_ID0000001": {
+                 "job_name": "ls_ID0000001",
+                 "state": "POST_SCRIPT_FAILURE",
+                 "site": "condorpool",
+                 "hostname": "workflow.isi.edu",
+                 "work_dir": "/home/mzalam/wf/condor/local/execute/dir_148537",
+                 "submit_file": "/home/mzalam/pegasus_master/pegasus/packages/pegasus-python/test/cli/analyzer_samples_dir/process_wf_failure/00/00/ls_ID0000001.sub",
+                 "stdout_file": "/home/mzalam/pegasus_master/pegasus/packages/pegasus-python/test/cli/analyzer_samples_dir/process_wf_failure/00/00/ls_ID0000001.out",
+                 "stderr_file": "/home/mzalam/pegasus_master/pegasus/packages/pegasus-python/test/cli/analyzer_samples_dir/process_wf_failure/00/00/ls_ID0000001.err",
+                 "executable": "/home/mzalam/processwf/process-workflow/submit/mzalam/pegasus/process/run0001/00/00/ls_ID0000001.sh",
+                 "argv": "",
+                 "pre_executable": "",
+                 "pre_argv": null,
+                 "submit_dir": null,
+                 "subwf_dir": "-",
+                 "stdout_text": "-",
+                 "stderr_text": "/bin/ls: invalid option -- 'z'\nTry '/bin/ls --help' for more information.\n",
+                 "tasks": {
+                   "1": {
+                     "task_submit_seq": 1,
+                     "exitcode": 2,
+                     "executable": "/usr/bin/ls",
+                     "arguments": "-",
+                     "transformation": "ls",
+                     "abs_task_id": "ID0000001"
+                   }
+                 }
+               }
+             }
+           }
+         }
+       }
+     }
+   }
  
 Environment Variables
 =====================
