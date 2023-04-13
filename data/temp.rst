@@ -182,16 +182,25 @@ Options
    **-r|--recurse** option. This option dictates the number of white spaces
    to use when indenting the output of pegasus-analyzer of a sub workflow.
 
-**-j**
-   This option returns the status of the workflow in a JSON serializable data
+**-j**; \ **--json**
+   This option returns the output from analyzer in a JSON serializable data
    structure (Python dict). Sample of this structure is shown below, where the
    keys are -
 
-+ *totals* : contains the overall progress of the workflow
-+ *dags* : contains progress regarding each workflow, in case of hierarchical workflows each sub-DAG with it's name as corresponding key
-+ *condor_jobs*: contains all the jobs in Q belonging to a specific workflow, with it's unique *wf_uuid* as corresponding key. Furthermore, each workflow has *DAG_NAME* key and *DAG_CONDOR_JOBS* key with a list of condor Q jobs of the corresponding DAG
-
-| If there are no jobs of the workflow in the condor Q, *condor_jobs* is absent from the returned structure. By default, **-j** option is off.
++ *root_wf_uuid* : uuid of the root workflow
++ *submit_directory* : submit directory of the root workflow
++ *workflows*: a dict containing Workflow objects
++ *root*: key used for root workflow
++ *jobs*: a dict containing Jobs objects
++ *total*: total number of jobs
++ *success*: number of jobs completed
++ *failed*: number of jobs failed
++ *held*: number of jobs held
++ *unsubmitted*: number of jobs unsubmitted
++ *job_details*: a dict containing details of all jobs
++ *job_type*: failed_jobs or unknown_jobs or failing_jobs or held_jobs
++ *job*: name of a specific job, contains JobInstance objects
++ *tasks*: a dict containing Task objects
 
 .. code-block:: json
 
