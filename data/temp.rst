@@ -187,7 +187,7 @@ Options
    structure (Python dict). Sample of this structure is shown below, where the
    keys are -
 
-+ *root_wf_uuid* : uuid of the root workflow
+  + *root_wf_uuid* : uuid of the root workflow
 + *submit_directory* : submit directory of the root workflow
 + *workflows*: a dict containing Workflow objects
 + *root*: key used for root workflow
