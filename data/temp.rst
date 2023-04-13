@@ -195,67 +195,64 @@ Options
 
 .. code-block:: json
 
-    {
-  "totals": {
-    "unready": 13,
-    "ready": 0,
-    "pre": 0,
-    "queued": 1,
-    "post": 1,
-    "succeeded": 14,
-    "failed": 0,
-    "percent_done": 48.28,
-    "total": 29
-  },
-  "dags": {
-    "root": {
-      "unready": 4,
-      "ready": 0,
-      "pre": 0,
-      "queued": 1,
-      "post": 0,
-      "succeeded": 8,
-      "failed": 0,
-      "percent_done": 61.54,
-      "total": 13,
-      "dagname": "workflow-0.dag",
-      "state": "Running"
-    }
-  },
-  "condor_jobs": {
-    "f436c93a-5ef5-4d9f-815a-0ccee5e9de67": {
-      "DAG_NAME": "root",
-      "DAG_CONDOR_JOBS": [
-        {
-          "ClusterId": 2457,
-          "Cmd": "/usr/bin/pegasus-dagman",
-          "EnteredCurrentStatus": 1664819625,
-          "Iwd": "workflow/run/directory/run0001",
-          "JobPrio": 0,
-          "JobStatus": "Run",
-          "pegasus_site": "local",
-          "pegasus_wf_name": "hierarchical-workflow-0",
-          "pegasus_wf_xformation": "pegasus::dagman",
-          "UserLog": "run/directory/run0001/workflow-0.dag.dagman.log"
-        },
-        {
-          "ClusterId": 2465,
-          "Cmd": "/usr/bin/condor_dagman",
-          "EnteredCurrentStatus": 1664819681,
-          "Iwd": "workflow/run/directory/run0001/00/00/./inner",
-          "JobPrio": 30,
-          "JobStatus": "Run",
-          "pegasus_site": "local",
-          "pegasus_wf_dag_job_id": "pegasus-plan_diamond_subworkflow",
-          "pegasus_wf_dax_job_id": "diamond_subworkflow",
-          "pegasus_wf_name": "hierarchical-workflow-0",
-          "pegasus_wf_xformation": "condor::dagman",
-          "UserLog": "run/directory/run0001/workflow-0.log"
-        }
-      ]
-     }
-   }
- }
+            {
+              "root_wf_uuid": <str>,
+              "submit_directory": <str>,
+              "workflows": {
+                "root": {
+                  "wf_uuid": <str>,
+                  "dag_file_name": <str>,
+                  "submit_hostname": <str>,
+                  "submit_dir": <str>,
+                  "user": <str>,
+                  "planner_version": <str>,
+                  "wf_name": <str>,
+                  "wf_status": <str>,
+                  "parent_wf_name": <str>,
+                  "parent_wf_uuid": <str>,
+                  "jobs": {
+                    "total": <int>,
+                    "success": <int>,
+                    "failed": <int>,
+                    "held": <int>,
+                    "unsubmitted": <int>,
+                    "job_details": {
+                      "job_type": {
+                        "job": {
+                          "job_name": <str>,
+                          "state": <str>,
+                          "site": <str>,
+                          "hostname": <str>,
+                          "work_dir": <str>,
+                          "submit_file": <str>,
+                          "stdout_file": <str>,
+                          "stderr_file": <str>,
+                          "executable": <str>,
+                          "argv": <str>,
+                          "pre_executable": <str>,
+                          "pre_argv": <str>,
+                          "submit_dir": <str>,
+                          "subwf_dir": <str>,
+                          "stdout_text": <str>,
+                          "stderr_text": <str>,
+                          "tasks": {
+                            "task_id": {
+                              "task_submit_seq": <int>,
+                              "exitcode": <str>,
+                              "executable": <str>,
+                              "arguments": <str>,
+                              "transformation": <str>,
+                              "abs_task_id": <str>
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
  
 Environment Variables
 =====================
