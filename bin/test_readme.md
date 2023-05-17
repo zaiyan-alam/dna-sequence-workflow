@@ -15,7 +15,7 @@ Table of contents
       * [Summary](#multiple-files)
    * [Workflow Examples](#tests)
       * [Artificial Intelligence](#dependency)
-            * [Artificial Intelligence](#dependency)
+         * [Artificial Intelligence](#dependency)
       * [Astronomy](#docker)
       * [Bioinformatics](#docker)
 <!--te-->
