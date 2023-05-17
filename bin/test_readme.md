@@ -9,10 +9,10 @@ Table of contents
 <!--ts-->
    * [Getting started](#getting-started)
    * [Pegasus Tutorial](#pegasus-tutorial)
-      * [Introduction API](#stdin)
-      * [Debugging](#local-files)
-      * [Command Line Tools](#remote-files)
-      * [Summary](#multiple-files)
+      * [Introduction API](#introduction-api)
+      * [Debugging](#debugging)
+      * [Command Line Tools](#command-Line-Tools)
+      * [Summary](#summary)
    * [Workflow Examples](#tests)
       * [Artificial Intelligence](#dependency)
          * [Artificial Intelligence](#dependency)
@@ -70,5 +70,5 @@ Summary
 
 
 
-Getting started
-===============
+Artificial Intelligence
+=======================
