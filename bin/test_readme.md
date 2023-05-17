@@ -16,8 +16,13 @@ Table of contents
    * [Workflow Examples](#tests)
       * [Artificial Intelligence](#dependency)
          * [Artificial Intelligence](#dependency)
+         * [Artificial Intelligence](#dependency)
+         * [Artificial Intelligence](#dependency)
       * [Astronomy](#docker)
+         * [Artificial Intelligence](#dependency) 
       * [Bioinformatics](#docker)
+         * [Artificial Intelligence](#dependency)
+         * [Artificial Intelligence](#dependency) 
 <!--te-->
 
 
