@@ -9,13 +9,15 @@ Table of contents
 <!--ts-->
    * [Getting started](#getting-started)
    * [Pegasus Tutorial](#pegasus-tutorial)
-      * [Introduction-API](#stdin)
+      * [Introduction API](#stdin)
       * [Debugging](#local-files)
       * [Command Line Tools](#remote-files)
       * [Summary](#multiple-files)
    * [Workflow Examples](#tests)
-      * [Dependency](#dependency)
-      * [Docker](#docker)
+      * [Artificial Intelligence](#dependency)
+            * [Artificial Intelligence](#dependency)
+      * [Astronomy](#docker)
+      * [Bioinformatics](#docker)
 <!--te-->
 
 
@@ -38,3 +40,30 @@ In Jupyter, navigate to the example you are interested in, and step through the 
 For first time users, we highly recommend to do the notebooks in order, as they build up on concepts in the previous notebooks.
 
 
+Pegasus Tutorial
+================
+
+
+
+Introduction API
+================
+
+
+
+Debugging
+=========
+
+
+
+Command Line Tools
+==================
+
+
+
+Summary
+===============
+
+
+
+Getting started
+===============
