@@ -14,10 +14,11 @@ However, modeling the probability of a word based on all previous words is compu
 
 For a **Bigram Language Model**, we assume that the probability of a word depends only on the immediately preceding word:
 
+$$
 \[
 P(w_i | w_1, w_2, ..., w_{i-1}) \approx P(w_i | w_{i-1})
 \]
-
+$$
 Thus, the joint probability becomes:
 
 \[
