@@ -6,11 +6,9 @@
 
 **Language Modeling** is the task of assigning a probability to a sequence of words or predicting the next word in a sequence. It serves as the foundation for many Natural Language Processing (NLP) tasks such as speech recognition, machine translation, and text generation.
 
-Mathematically, given a sequence of words \( w_1, w_2, ..., w_n \), a language model estimates the joint probability:
+Mathematically, given a sequence of words $\( w_1, w_2, ..., w_n \)$, a language model estimates the joint probability:
 
-\[
-P(w_1, w_2, ..., w_n) = \prod_{i=1}^{n} P(w_i | w_1, w_2, ..., w_{i-1})
-\]
+$P(w_1, w_2, ..., w_n) = \prod_{i=1}^{n} P(w_i | w_1, w_2, ..., w_{i-1})$
 
 However, modeling the probability of a word based on all previous words is computationally intensive due to the **curse of dimensionality**. To simplify, we make use of the **Markov Assumption**, which states that the probability of a word depends only on a fixed number of previous words.
 
