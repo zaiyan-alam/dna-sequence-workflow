@@ -339,8 +339,6 @@ Advancements in probabilistic graphical models and deep learning have enhanced t
 
 ---
 
-# Probability Concepts for NLP
-
 ## 3. Conditional Probability
 
 ### 3.1. Concepts and Mathematical Formalizations
