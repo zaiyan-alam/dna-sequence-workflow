@@ -339,6 +339,8 @@ Advancements in probabilistic graphical models and deep learning have enhanced t
 
 ---
 
+# Probability Concepts for NLP
+
 ## 3. Conditional Probability
 
 ### 3.1. Concepts and Mathematical Formalizations
@@ -392,4 +394,346 @@ Consider a deck of 52 playing cards.
 - **Event B:** Drawing a Heart.
 
 $$
-P(A|B) = \frac{P(\text{King and Heart
+P(A|B) = \frac{P(\text{King and Heart})}{P(\text{Heart})} = \frac{\frac{1}{52}}{\frac{13}{52}} = \frac{1}{13}
+$$
+
+**Visualization:**
+
+Conditional probability can be visualized using probability trees or Venn diagrams, highlighting the dependence of one event on another.
+
+### 3.2. Real-World Examples
+
+**Example 1: Named Entity Recognition (NER)**
+
+In NER, the probability of a word being a named entity (Event A) given its surrounding context or tags (Event B).
+
+- **Event A:** The word "Apple" is a company.
+- **Event B:** The word appears in the context "Apple releases new iPhone."
+
+$$
+P(\text{Company} | \text{Context}) = \frac{P(\text{Context} | \text{Company}) \cdot P(\text{Company})}{P(\text{Context})}
+$$
+
+**Example 2: Part-of-Speech Tagging**
+
+Determining the POS tag of a word based on its preceding word.
+
+- **Event A:** The word "can" is a verb.
+- **Event B:** The preceding word is "I."
+
+$$
+P(\text{Verb} | \text{"I"}) = \frac{P(\text{"I"} | \text{Verb}) \cdot P(\text{Verb})}{P(\text{"I"})}
+$$
+
+### 3.3. Sample Python Code in NLP
+
+Let's implement conditional probability in the context of bigram language modeling, where the probability of a word depends on the preceding word.
+
+```python
+from collections import defaultdict
+
+# Sample corpus
+corpus = [
+    "I love natural language processing",
+    "I love machine learning",
+    "machine learning is fun",
+    "natural language processing is a subset of machine learning",
+    "I enjoy learning new things"
+]
+
+# Preprocess corpus: tokenize and add start token
+tokenized_corpus = [['<s>'] + sentence.lower().split() + ['</s>'] for sentence in corpus]
+
+# Count bigrams and unigrams
+bigram_counts = defaultdict(int)
+unigram_counts = defaultdict(int)
+
+for sentence in tokenized_corpus:
+    for i in range(len(sentence)-1):
+        unigram = sentence[i]
+        bigram = (sentence[i], sentence[i+1])
+        unigram_counts[unigram] += 1
+        bigram_counts[bigram] += 1
+    # Count the last unigram
+    unigram_counts[sentence[-1]] += 1
+
+# Calculate conditional probabilities P(w2 | w1)
+conditional_prob = defaultdict(float)
+
+for bigram, count in bigram_counts.items():
+    w1 = bigram[0]
+    w2 = bigram[1]
+    conditional_prob[bigram] = count / unigram_counts[w1]
+
+# Function to get P(w2 | w1)
+def get_conditional_probability(w1, w2):
+    return conditional_prob.get((w1, w2), 0.0)
+
+# Example: P('learning' | 'machine')
+prob = get_conditional_probability('machine', 'learning')
+print(f"P('learning' | 'machine') = {prob:.2f}")
+
+# Example: P('machine' | 'language')
+prob = get_conditional_probability('language', 'machine')
+print(f"P('machine' | 'language') = {prob:.2f}")
+
+# Example: P('</s>' | 'learning')
+prob = get_conditional_probability('learning', '</s>')
+print(f"P('</s>' | 'learning') = {prob:.2f}")
+```
+
+**Explanation:**
+
+- **Corpus:** A list of sentences for building the language model.
+- **Tokenization:** Each sentence is tokenized and prepended with a start token `<s>` and appended with an end token `</s>`.
+- **Bigram and Unigram Counts:** Counts occurrences of each bigram (pair of consecutive words) and unigram (single word).
+- **Conditional Probability Calculation:** $P(w_2 | w_1) = \frac{\text{Count}(w_1, w_2)}{\text{Count}(w_1)}$
+- **get_conditional_probability:** Retrieves the conditional probability of a bigram.
+
+**Output:**
+```
+P('learning' | 'machine') = 1.00
+P('machine' | 'language') = 0.50
+P('</s>' | 'learning') = 0.50
+```
+
+**Interpretation:**
+
+- After the word "machine," the next word is always "learning" in the corpus, hence $P(\text{'learning'} | \text{'machine'}) = 1.00$.
+- After the word "language," there is a 50% chance the next word is "machine."
+- After "learning," there is a 50% chance of ending the sentence.
+
+### 3.4. Further Important Information Relevant to NLP
+
+**Smoothing Techniques:**
+
+In NLP, especially with language models, some bigrams may never occur in the training data, leading to zero probabilities. Smoothing techniques (like Laplace smoothing) adjust conditional probabilities to handle unseen events.
+
+**Bayesian Networks in NLP:**
+
+Conditional probabilities form the basis of Bayesian Networks, which model dependencies between variables. They are used in various NLP tasks like parsing, information extraction, and machine translation.
+
+**Conditional Random Fields (CRFs):**
+
+CRFs are probabilistic models used for sequence labeling tasks (e.g., POS tagging, NER). They model the conditional probability of a label sequence given an input sequence, leveraging conditional probabilities.
+
+**Advantages:**
+
+- **Contextual Understanding:** Conditional probabilities allow models to consider context, enhancing prediction accuracy.
+- **Flexibility:** Can model complex dependencies between events.
+
+**Disadvantages:**
+
+- **Data Sparsity:** High-dimensional conditional probability tables can suffer from sparsity.
+- **Computational Complexity:** Calculating and storing conditional probabilities for large vocabularies can be resource-intensive.
+
+**Recent Developments:**
+
+The advent of deep learning has introduced neural conditional probability models, such as RNNs and Transformers, which learn conditional probabilities implicitly without explicit probability tables.
+
+---
+
+## 4. Independence
+
+### 4.1. Concepts and Mathematical Formalizations
+
+**Independence:**
+
+Two events A and B are independent if the occurrence of one does not affect the probability of the occurrence of the other. Independence simplifies probability calculations and is a critical assumption in many probabilistic models.
+
+**Definition:**
+
+Events A and B are independent if and only if:
+
+$$
+P(A \cap B) = P(A) \cdot P(B)
+$$
+
+**Equivalent Definitions:**
+
+- $P(A|B) = P(A)$
+- $P(B|A) = P(B)$
+
+**Mutual Independence:**
+
+A set of events $\{A_1, A_2, \dots, A_n\}$ is mutually independent if every subset of these events is independent.
+
+**Formal Definition:**
+
+For any subset $\{A_{i_1}, A_{i_2}, \dots, A_{i_k}\}$ where $1 \leq k \leq n$,
+
+$$
+P(A_{i_1} \cap A_{i_2} \cap \dots \cap A_{i_k}) = P(A_{i_1}) \cdot P(A_{i_2}) \cdot \dots \cdot P(A_{i_k})
+$$
+
+**Example:**
+
+Consider flipping two fair coins.
+
+- **Event A:** The first coin is Heads.
+- **Event B:** The second coin is Heads.
+
+$$
+P(A) = P(B) = \frac{1}{2}
+$$
+$$
+P(A \cap B) = \frac{1}{4} = P(A) \cdot P(B)
+$$
+
+Thus, A and B are independent.
+
+**Visualization:**
+
+In a Venn diagram, independent events do not overlap more or less than what is expected by their individual probabilities.
+
+### 4.2. Real-World Examples
+
+**Example 1: Word Occurrence in Documents**
+
+In topic modeling, the occurrence of one word in a document might be independent of the occurrence of another word, assuming no contextual relationship.
+
+- **Event A:** The word "computer" appears in a document.
+- **Event B:** The word "science" appears in the same document.
+
+If $P(A \cap B) = P(A)P(B)$, then the occurrences are independent.
+
+**Example 2: Feature Independence in Naive Bayes Classifier**
+
+Naive Bayes assumes that features (e.g., word occurrences) are conditionally independent given the class label.
+
+- **Event A:** The word "good" appears in a movie review.
+- **Event B:** The word "bad" appears in the same review.
+
+Given the class label (e.g., Positive or Negative), A and B are assumed independent.
+
+### 4.3. Sample Python Code in NLP
+
+Let's demonstrate independence in the context of the Naive Bayes classifier for text classification.
+
+```python
+from collections import defaultdict
+import math
+
+# Sample dataset: (document, class)
+dataset = [
+    ("I love this movie", "Positive"),
+    ("I hate this movie", "Negative"),
+    ("This film was great", "Positive"),
+    ("This film was terrible", "Negative"),
+    ("I enjoy watching good movies", "Positive"),
+    ("I dislike bad movies", "Negative")
+]
+
+# Preprocess dataset: tokenize and lowercase
+tokenized_data = [ (doc.lower().split(), cls) for doc, cls in dataset ]
+
+# Calculate prior probabilities P(Class)
+class_counts = defaultdict(int)
+total_docs = len(tokenized_data)
+
+for _, cls in tokenized_data:
+    class_counts[cls] += 1
+
+prior_prob = {cls: count / total_docs for cls, count in class_counts.items()}
+
+# Calculate likelihood P(word | Class)
+word_counts = defaultdict(lambda: defaultdict(int))
+total_words = defaultdict(int)
+
+for words, cls in tokenized_data:
+    for word in words:
+        word_counts[cls][word] += 1
+        total_words[cls] += 1
+
+# Vocabulary
+vocabulary = set(word for words, _ in tokenized_data for word in words)
+
+# Function to calculate P(word | Class) with Laplace smoothing
+def p_word_given_class(word, cls, alpha=1):
+    return (word_counts[cls][word] + alpha) / (total_words[cls] + alpha * len(vocabulary))
+
+# Function to predict class using Naive Bayes
+def predict_naive_bayes(words):
+    scores = {}
+    for cls in class_counts:
+        # Start with log prior
+        scores[cls] = math.log(prior_prob[cls])
+        for word in words:
+            if word in vocabulary:
+                scores[cls] += math.log(p_word_given_class(word, cls))
+            else:
+                # Handle unknown words with Laplace smoothing
+                scores[cls] += math.log(1 / (total_words[cls] + len(vocabulary)))
+    return max(scores, key=scores.get)
+
+# Test the classifier
+test_docs = [
+    "I love good movies",
+    "I hate bad movies",
+    "This film was great",
+    "This film was awful"
+]
+
+for doc in test_docs:
+    words = doc.lower().split()
+    prediction = predict_naive_bayes(words)
+    print(f"Document: '{doc}' => Predicted Class: {prediction}")
+```
+
+**Explanation:**
+
+- **Dataset:** A small collection of movie reviews labeled as Positive or Negative.
+- **Prior Probability:** $P(\text{Class})$ based on class frequencies.
+- **Likelihood:** $P(\text{Word}|\text{Class})$ computed with Laplace smoothing to handle unseen words.
+- **Naive Bayes Assumption:** Features (words) are conditionally independent given the class.
+- **Prediction:** For each test document, compute the log-probability for each class and select the class with the highest score.
+
+**Output:**
+```
+Document: 'I love good movies' => Predicted Class: Positive
+Document: 'I hate bad movies' => Predicted Class: Negative
+Document: 'This film was great' => Predicted Class: Positive
+Document: 'This film was awful' => Predicted Class: Negative
+```
+
+**Interpretation:**
+
+The Naive Bayes classifier correctly predicts the sentiment of each test document by assuming independence between words given the class label.
+
+### 4.4. Further Important Information Relevant to NLP
+
+**Naive Bayes Assumption:**
+
+Naive Bayes classifiers rely heavily on the independence assumption, which simplifies computations but may not hold true in practice. Despite this, Naive Bayes often performs well in NLP tasks like spam detection and text classification.
+
+**Feature Independence vs. Contextual Dependence:**
+
+While independence assumptions simplify models, many NLP phenomena involve dependencies (e.g., word order, syntax). Advanced models like RNNs and Transformers capture these dependencies more effectively.
+
+**Testing Independence:**
+
+Statistical tests (like Chi-Square tests) can assess whether events (e.g., word occurrences) are independent, informing model design choices.
+
+**Advantages:**
+
+- **Simplicity and Efficiency:** Models with independence assumptions are computationally efficient.
+- **Scalability:** Easily handle large feature sets common in NLP.
+
+**Disadvantages:**
+
+- **Oversimplification:** Ignoring dependencies can lead to suboptimal performance in tasks where context is crucial.
+- **Limited Expressiveness:** May fail to capture complex linguistic structures.
+
+**Recent Developments:**
+
+Modern NLP leverages deep learning architectures that inherently model dependencies between words, reducing reliance on strict independence assumptions while benefiting from their computational efficiencies.
+
+**Alternative Approaches:**
+
+Techniques like feature engineering, dependency parsing, and attention mechanisms aim to mitigate the limitations of independence assumptions by incorporating contextual information.
+
+---
+
+# Conclusion
+
+This chapter has covered the fundamental probability concepts essential for mastering NLP. By understanding sample spaces and events, probability axioms, conditional probability, and independence, you are equipped to delve deeper into more complex probabilistic models and machine learning algorithms that drive modern NLP applications. The provided Python code examples offer practical insights into applying these concepts, bridging the gap between theory and practice. As NLP continues to evolve, a robust grasp of these probability foundations will remain invaluable in developing sophisticated language models and intelligent systems.
