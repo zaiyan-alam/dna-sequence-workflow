@@ -328,4 +328,23 @@ P_A_union_B = probability(A.union(B), probabilities)
 # P(A) + P(B)
 P_A_plus_P_B = probability(A, probabilities) + probability(B, probabilities)
 
-print(
+print(f"P(A ∪ B) = {P_A_union_B}")  # Output: 0.5
+print(f"P(A) + P(B) = {P_A_plus_P_B}")  # Output: 0.5
+# Should be equal
+assert P_A_union_B == P_A_plus_P_B
+```
+
+---
+
+## 5. Summary
+
+Understanding basic probability concepts is crucial for developing and interpreting NLP models. Key takeaways from this chapter include:
+
+- **Sample Space ($\Omega$)**: The complete set of possible outcomes (e.g., all possible next words).
+- **Events**: Subsets of the sample space representing specific outcomes or groups of outcomes.
+- **Probability Axioms**:
+  - **Non-negativity**: Probabilities are always zero or positive.
+  - **Normalization**: The total probability of the sample space is one.
+  - **Additivity**: The probability of mutually exclusive events is the sum of their individual probabilities.
+
+These foundational principles enable the construction of more complex probabilistic models used in various NLP tasks, such as language modeling, text classification, and machine translation.
